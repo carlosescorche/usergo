@@ -21,6 +21,7 @@ func init() {
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/user", handlers.HandlerUserAdd).Methods("POST")
+	r.HandleFunc("/user/{id}", handlers.HandlerUserUpdate).Methods("PUT")
 
 	err := http.ListenAndServe(os.Getenv("HTTP_PORT"), r)
 
