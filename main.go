@@ -22,6 +22,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/user", handlers.HandlerUserAdd).Methods("POST")
 	r.HandleFunc("/user/{id}", handlers.HandlerUserUpdate).Methods("PUT")
+	r.HandleFunc("/user/{id}", handlers.HandlerUserDelete).Methods("DELETE")
 
 	err := http.ListenAndServe(os.Getenv("HTTP_PORT"), r)
 
